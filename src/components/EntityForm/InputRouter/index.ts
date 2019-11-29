@@ -1,0 +1,1 @@
+export { InputRouter as default } from './InputRouter.component';

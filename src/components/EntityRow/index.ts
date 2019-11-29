@@ -1,0 +1,1 @@
+export { EntityRow as default } from './EntityRow.component';

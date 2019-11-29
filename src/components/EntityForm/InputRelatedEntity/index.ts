@@ -1,0 +1,1 @@
+export { InputRelatedEntity as default } from './InputRelatedEntity.component';

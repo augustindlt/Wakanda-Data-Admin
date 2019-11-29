@@ -1,0 +1,1 @@
+export { DeleteEntity as default } from './DeleteEntity.component';

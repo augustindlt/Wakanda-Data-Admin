@@ -1,0 +1,1 @@
+export { EntityForm as default } from './EntityForm.component';

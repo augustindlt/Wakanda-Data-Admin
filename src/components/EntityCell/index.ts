@@ -1,0 +1,1 @@
+export { EntityCell as default } from './EntityCell.component';

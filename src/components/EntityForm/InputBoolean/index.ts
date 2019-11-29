@@ -1,0 +1,1 @@
+export { InputBoolean as default } from './InputBoolean.component';

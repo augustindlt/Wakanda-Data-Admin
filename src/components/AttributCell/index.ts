@@ -1,0 +1,1 @@
+export { AttributCell as default } from './AttributCell.component';

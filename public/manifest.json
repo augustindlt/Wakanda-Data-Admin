@@ -1,0 +1,9 @@
+{
+  "short_name": "Wakanda Data Admin",
+  "name": "Wakanda Data Admin, a simple web admin to manage wakanda data",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
