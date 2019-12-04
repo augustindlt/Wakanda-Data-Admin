@@ -1,36 +1,24 @@
-import { compose, withState, lifecycle, withProps } from "recompose";
+import { compose, withProps } from "recompose";
 import { DataClassList, IProps } from "./DataClassList.component";
-import WakConnector from "../../libs/WakConnector/WakConnector";
 import { IWakDataclass } from "../../libs/WakConnector/WakConnector.types";
 import Store from "../../libs/Store/Store";
+import withDataClasses from "../withDataClasses";
 
 interface IContainerProps {}
 
 interface IConnectedProps extends IContainerProps {
-  setDataClasses: (dataClasses: IWakDataclass[]) => void;
+  dataClasses: IWakDataclass[];
 }
 
-const fetchDataClasses = async (props: IConnectedProps) => {
-  const { dataClasses } = await WakConnector.getAllCatalogs();
-  if (!Store.table) {
-    Store.table = dataClasses[0].name;
+const withCurrentDataClassProp = (props: IConnectedProps) => {
+  if (!Store.table && props.dataClasses.length) {
+    Store.table = props.dataClasses[0].name;
     Store.apply();
   }
-  props.setDataClasses(dataClasses);
-};
-
-const withCurrentDataClassProp = (props: IConnectedProps) => {
   return { currentDataClass: Store.table };
 };
 
-const withInit = lifecycle<IConnectedProps, {}>({
-  componentDidMount() {
-    fetchDataClasses(this.props);
-  }
-});
-
 export default compose<IProps, IContainerProps>(
-  withState("dataClasses", "setDataClasses", []),
-  withProps(withCurrentDataClassProp),
-  withInit
+  withDataClasses,
+  withProps(withCurrentDataClassProp)
 )(DataClassList);
