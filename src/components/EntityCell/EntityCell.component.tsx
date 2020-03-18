@@ -34,6 +34,10 @@ export class EntityCell extends PureComponent<IProps> {
       );
     }
 
+    if (attribut.type === "object") {
+      return <td>{JSON.stringify(value)}</td>;
+    }
+
     return <td>{value}</td>;
   }
 
