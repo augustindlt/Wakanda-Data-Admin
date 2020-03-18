@@ -37,6 +37,7 @@ export interface IWakAttribute {
     | "string"
     | "uuid"
     | "word"
+    | "bool"
     | "object";
   minLength: number;
   maxLength: number;

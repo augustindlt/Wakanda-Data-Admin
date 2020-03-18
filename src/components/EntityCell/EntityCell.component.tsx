@@ -38,6 +38,14 @@ export class EntityCell extends PureComponent<IProps> {
       return <td>{JSON.stringify(value)}</td>;
     }
 
+    if (attribut.type === "bool") {
+      return (
+        <td>
+          <input type="checkbox" checked={value} />
+        </td>
+      );
+    }
+
     return <td>{value}</td>;
   }
 
